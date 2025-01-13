@@ -1,0 +1,30 @@
+<div class="flex items-center justify-center h-screen bg-gradient-to-b from-red-500 to-white">
+  <!-- Login Card -->
+  <div class="flex flex-col md:flex-row bg-white shadow-md rounded-lg overflow-hidden">
+    <!-- MG Certifica Section -->
+    <div class="p-6 flex flex-col justify-center items-center">
+      <img src="https://app-dev-micro-sso-front.azurewebsites.net/assets/logot-0DzOMdIM.png" alt="MG Certifica" class="h-16 mb-4">
+      <p class="text-center mb-4">Ingresa el run para acceder a tu cuenta</p>
+      <form (ngSubmit)="onLogin()"> <!-- Usamos ngSubmit en lugar de click -->
+        <input [(ngModel)]="rut" name="rut" type="text" placeholder="Run Usuario" class="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4" required>
+        <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Acceder</button>
+      </form>
+    </div>
+
+    <!-- Divider -->
+    <div class="hidden md:block w-px bg-gray-200"></div>
+
+    <!-- Rakin-Tec Section -->
+    <div class="p-6 flex flex-col justify-center">
+      <div class="flex items-center mb-4">
+        <img src="https://app-dev-micro-sso-front.azurewebsites.net/assets/logo_rakin-HZBO4fGH.png" alt="Rakin-Tec" class="h-8 mr-2">
+      </div>
+      <h2 class="font-bold text-lg mb-2">¿Qué ofrecemos?</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Planificación, digitación y análisis de brechas en procesos portuarios.</li>
+        <li>Auditoría integral de instrumentos y sistemas aplicados en operaciones portuarias y mineras.</li>
+        <li>Elaboración y presentación de informes detallados sobre brechas detectadas en las áreas portuarias y mineras.</li>
+      </ul>
+    </div>
+  </div>
+</div>

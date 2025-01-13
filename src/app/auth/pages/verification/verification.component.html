@@ -1,0 +1,45 @@
+<div class="h-screen flex items-center justify-center bg-gradient-to-b from-red-500 to-white">
+  <div class="flex flex-col md:flex-row bg-white shadow-md rounded-lg overflow-hidden max-w-4xl w-full">
+    <div class="p-6 flex flex-col justify-center items-center w-full md:w-1/2">
+      <img src="https://app-dev-micro-sso-front.azurewebsites.net/assets/logot-0DzOMdIM.png" alt="MG Certifica" class="h-16 mb-4">
+      <h2 class="text-lg font-bold text-gray-800 mb-2">MG CERTIFICA</h2>
+      <p class="text-center text-gray-600 mb-4">
+        Introduce el código enviado a tu correo electrónico para completar el inicio de sesión.
+      </p>
+      <form (ngSubmit)="verifyCode()">
+        <div class="flex space-x-2 mb-4">
+          <input
+            [(ngModel)]="codigoVerificacion"
+            name="codigoVerificacion"
+            type="text"
+            maxlength="6"
+            class="border border-gray-300 rounded-lg p-2 w-72 text-center"
+            (input)="handleInput($event)"
+            placeholder="Ingrese el código de verificación" />
+        </div>
+        <button type="button" (click)="verifyCode()" class="mt-4 bg-red-500 text-white p-2 rounded">Verificar Código</button>
+      </form>
+      <div *ngIf="successMessage" class="text-green-500">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="text-red-500">
+        {{ errorMessage }}
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="hidden md:block w-px bg-gray-200"></div>
+
+    <!-- Rakin-Tec Section -->
+    <div class="p-6 flex flex-col justify-center items-center w-full md:w-1/2">
+      <div class="flex items-center mb-6">
+        <img src="https://app-dev-micro-sso-front.azurewebsites.net/assets/logo_rakin-HZBO4fGH.png" alt="Rakin-Tec" class="h-16 mb-4">
+      </div>
+      <h3 class="font-bold text-lg mb-2">¿Qué ofrecemos?</h3>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Planificación, digitación y análisis de brechas en procesos portuarios.</li>
+        <li>Auditoría integral de instrumentos y sistemas aplicados en operaciones portuarias y mineras.</li>
+        <li>Elaboración y presentación de informes detallados sobre brechas detectadas en las áreas portuarias y mineras.</li>
+      </ul>
+    </div>
+  </div>
+</div>
