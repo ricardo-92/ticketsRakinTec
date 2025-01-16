@@ -1,0 +1,54 @@
+<!-- dashboard.component.html -->
+<div class="min-h-screen bg-background">
+  <!-- Header -->
+  <header class="flex h-14 items-center gap-4 border-b bg-gray-100/40 px-6">
+    <button class="md:hidden">
+      <i class="h-6 w-6">☰</i>
+    </button>
+    <div class="flex flex-1 items-center gap-2">
+      <h2 class="text-lg font-semibold">Tickets</h2>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 space-y-4 p-8">
+    <!-- Filters -->
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-sm">Esta Semana</span>
+        <select title="filter" class="w-[180px] rounded-lg border bg-white px-3 py-2">
+          <option value="esta-semana">Esta Semana</option>
+          <option value="mes-pasado">Mes Pasado</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm">Prioridad</span>
+        <select title="prioridad" class="w-[180px] rounded-lg border bg-white px-3 py-2">
+          <option value="alta">Alta</option>
+          <option value="media">Media</option>
+          <option value="baja">Baja</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Tickets Grid -->
+    <div class="grid gap-4">
+      <div class="rounded-lg border bg-card p-6 shadow-sm">
+        <div class="flex flex-col space-y-1.5">
+          <h3 class="text-lg font-semibold">Título del ticket</h3>
+        </div>
+        <div class="p-0">
+          <p class="text-sm text-muted-foreground">Lorem ipsum dolor sit amet...</p>
+          <div class="mt-4 flex items-center gap-2">
+            <button class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90">
+              Abrir
+            </button>
+            <span class="text-sm text-muted-foreground">
+              Prioridad: Alta
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

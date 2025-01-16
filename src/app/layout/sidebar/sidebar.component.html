@@ -1,0 +1,60 @@
+<div class="flex h-screen bg-background">
+  <!-- Sidebar -->
+  <div [ngClass]="{ 'w-64': !isCollapsed, 'w-16': isCollapsed }"
+       class="bg-white text-foreground transition-all duration-300 border-r">
+    <div class="flex items-center justify-between p-4">
+      <img *ngIf="!isCollapsed" src="https://app-dev-micro-sso-front.azurewebsites.net/assets/logo_rakin-HZBO4fGH.png" alt="Rakin Logo" class="h-8">
+      <button title="collapseButton" type="button" (click)="toggleSidebar()"
+              class="text-foreground hover:bg-accent hover:text-accent-foreground rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5M3.75 12h16.5m-16.5 6.75h16.5" />
+        </svg>
+      </button>
+    </div>
+    <nav class="mt-4">
+      <ul class="space-y-2">
+        <li>
+          <a routerLink="/app/dashboard" routerLinkActive="bg-gray-200 text-accent-foreground"
+             class="flex items-center p-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors"
+             [ngClass]="{ 'justify-center': isCollapsed, 'justify-start': !isCollapsed }">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                 [ngClass]="{ 'mr-0': isCollapsed, 'mr-2': !isCollapsed }">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+            </svg>
+            <span [ngClass]="{ 'hidden': isCollapsed }">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/app/ticket" routerLinkActive="bg-gray-200 text-accent-foreground"
+             class="flex items-center p-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors"
+             [ngClass]="{ 'justify-center': isCollapsed, 'justify-start': !isCollapsed }">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                 [ngClass]="{ 'mr-0': isCollapsed, 'mr-2': !isCollapsed }">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z" />
+            </svg>
+            <span [ngClass]="{ 'hidden': isCollapsed }">Ticket</span>
+          </a>
+        </li>
+        <li *ngIf="isRoleOne()">
+          <a routerLink="/app/create-category" routerLinkActive="bg-gray-200 text-accent-foreground"
+             class="flex items-center p-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors"
+             [ngClass]="{ 'justify-center': isCollapsed, 'justify-start': !isCollapsed }">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+                 [ngClass]="{ 'mr-0': isCollapsed, 'mr-2': !isCollapsed }">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+            </svg>
+            <span [ngClass]="{ 'hidden': isCollapsed }">Crear Categoría</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col">
+    <app-header class="border-b"></app-header>
+    <main class="flex-1 p-6">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

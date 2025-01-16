@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true, // Hacemos el componente standalone
@@ -12,7 +13,7 @@ import { LoginService } from '../../services/login.service';
 export class LoginComponent {
   rut: string = '';
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(private router: Router, private loginService: LoginService, private authService: AuthService) {}
 
   // Método para manejar el login
   onLogin(): void {
@@ -24,6 +25,7 @@ export class LoginComponent {
             // Mostrar el mensaje de éxito en consola
             console.log('Login exitoso:', response.mensajeExitoso);
             alert(response.mensajeExitoso); // Mostrar también en la interfaz
+            this.authService.login();
             this.router.navigate(['/verification']);
           } else {
             alert('Error de autenticación: ' + response.mensajeError.join(', '));

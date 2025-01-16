@@ -1,0 +1,15 @@
+<header class="bg-white text-black p-4 flex justify-between items-center border-r">
+  <h1 class="text-lg font-semibold">Sistema de Tickets</h1>
+  <div class="relative">
+    <button class="text-black focus:outline-none hover:bg-gray-200 hover:text-black p-2 rounded-md" (click)="toggleDropdown()">
+      Nombre usuario
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 9l-7.5 7.5L4.5 9" />
+      </svg>
+    </button>
+    <ul *ngIf="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white text-black shadow-lg border-b border-black">
+      <li class="p-2 hover:bg-gray-200">Perfil</li>
+      <li class="p-2 hover:bg-gray-200">Cerrar sesión</li>
+    </ul>
+  </div>
+</header>

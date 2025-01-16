@@ -1,7 +1,7 @@
 // src/app/services/verificar-codigo.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,9 @@ export class VerificarCodigoService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post<any>(this.apiUrl, data, { headers });
+    return this.http.post<any>(this.apiUrl, data, { headers }).pipe(
+      tap((response) => console.log('Respuesta del servidor:', response))  // Esto imprimirá toda la respuesta
+    );
   }
 
 }

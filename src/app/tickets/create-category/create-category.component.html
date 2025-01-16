@@ -1,0 +1,95 @@
+<div class="p-0 bg-background h-full">
+  <h2 class="text-lg font-bold mb-2">Crear Categoría</h2>
+  <form class="space-y-4" (ngSubmit)="createCategory()">
+    <!-- Nombre de la Categoría -->
+    <div class="space-y-2">
+      <label for="categoryName" class="text-sm font-medium leading-none">Nombre</label>
+      <input
+        id="categoryName"
+        type="text"
+        maxlength="100"
+        [(ngModel)]="categoryName"
+        name="categoryName"
+        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      />
+    </div>
+
+    <!-- Descripción de la Categoría -->
+    <div class="space-y-2">
+      <label for="categoryDescription" class="text-sm font-medium leading-none">Descripción</label>
+      <textarea
+        id="categoryDescription"
+        maxlength="500"
+        [(ngModel)]="categoryDescription"
+        name="categoryDescription"
+        class="flex h-24 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      ></textarea>
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
+        Guardar Categoría
+      </button>
+    </div>
+  </form>
+
+  <h2 class="text-lg font-bold mt-0 mb-0">Crear Subcategoría</h2>
+  <form class="space-y-4" (ngSubmit)="createSubCategory()">
+    <!-- Nombre de la Subcategoría -->
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="space-y-2">
+        <label for="subCategoryName" class="text-sm font-medium leading-none">Nombre</label>
+        <input
+          id="subCategoryName"
+          type="text"
+          maxlength="100"
+          [(ngModel)]="subCategoryName"
+          name="subCategoryName"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        />
+      </div>
+
+      <!-- Dropdown para seleccionar Categoría -->
+      <div class="space-y-2">
+        <label for="subCategoryCategory" class="text-sm font-medium leading-none">Categoría</label>
+        <select
+          id="subCategoryCategory"
+          [(ngModel)]="selectedCategory"
+          name="subCategoryCategory"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          required
+        >
+          <option value="" disabled selected>Seleccione una categoría</option>
+          <option *ngFor="let category of categories" [value]="category.idcategoria">
+            {{ category.nombre }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Descripción de la Subcategoría -->
+    <div class="space-y-2">
+      <label for="subCategoryDescription" class="text-sm font-medium leading-none">Descripción</label>
+      <textarea
+        id="subCategoryDescription"
+        maxlength="500"
+        [(ngModel)]="subCategoryDescription"
+        name="subCategoryDescription"
+        class="flex h-24 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      ></textarea>
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        [disabled]="!selectedCategory || !subCategoryName || !subCategoryDescription"
+      >
+        Guardar Subcategoría
+      </button>
+    </div>
+  </form>
+</div>
