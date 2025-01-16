@@ -35,6 +35,7 @@ export class CreateCategoryComponent implements OnInit {
           // Limpiar el formulario después de crear la categoría
           this.categoryName = '';
           this.categoryDescription = '';
+          this.loadCategories();
         },
         (error) => {
           // Manejo de errores
